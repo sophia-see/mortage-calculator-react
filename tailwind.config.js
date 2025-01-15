@@ -46,6 +46,7 @@ export default {
       },
       colors: {
         "c-lime": "#D8DB2F",
+        "c-lime-15": "#F9FAE0",
 
         "c-slate-900": "#133041",
         "c-slate-700": "#4E6E7E",
