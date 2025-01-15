@@ -1,0 +1,54 @@
+
+export enum InputFieldSide {
+    LEFT = "left",
+    RIGHT = "right"
+}
+interface InputFieldProps {
+    side: string;
+    icon: string;
+    label: string;
+    type: string;
+}
+export default function InputField ({side, icon, label, type}: InputFieldProps) {
+    const isLeft = side == InputFieldSide.LEFT;
+
+    return (
+        <div
+            className="
+                flex flex-col gap-3
+            "
+        >
+            <div
+                className="
+                    text-c-slate-700 text-desktop/preset-4
+                "
+            >
+                {label}
+            </div>
+            <div
+                className="
+                    flex 
+                    border-[1px] border-c-slate-500 rounded-[4px]
+                    overflow-hidden
+                "
+            >
+                <div
+                    className={`
+                        ${isLeft ? "order-first": "order-last"}
+                        bg-c-slate-100 text-c-slate-700 text-desktop/preset-3
+                        py-[12.5px] px-[16px]
+                    `}
+                >
+                    {icon}
+                </div>
+                <input 
+                    className="
+                        flex-1
+                        pl-[16px]
+                    "
+                    type={type}
+                />
+            </div>
+        </div>
+    )
+}
