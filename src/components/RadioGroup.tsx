@@ -7,7 +7,7 @@ interface RadioGroupProps {
 }
 
 export default function RadioGroup ({label, name, items}: RadioGroupProps) {
-    const { register, watch } = useFormContext();
+    const { register, watch, setValue } = useFormContext();
     const selectedValue = watch(name); 
 
     return (
@@ -32,9 +32,13 @@ export default function RadioGroup ({label, name, items}: RadioGroupProps) {
                         className={`
                             py-[12.5px] px-[16px]
                             border-[1px] rounded-[4px] ${isSelected ? `border-c-lime bg-c-lime-15` : ` border-c-slate-500`}
-                            
+                            cursor-pointer
                             flex gap-4 items-center
                         `}
+                        
+                        onClick={() => {
+                            setValue(name, item)
+                        }}
                     >   
                         <input 
                             {...register(name)} 
@@ -44,6 +48,7 @@ export default function RadioGroup ({label, name, items}: RadioGroupProps) {
                             id={id}
                             className={`
                                 appearance-none 
+                                cursor-pointer
                                 w-5 h-5 
                                 rounded-full 
                                 border-[1.5px] border-c-slate-700 
@@ -70,6 +75,7 @@ export default function RadioGroup ({label, name, items}: RadioGroupProps) {
                         <label
                             className="
                                 text-c-slate-900 text-desktop/preset-3
+                                cursor-pointer
                             "
                             htmlFor={id}
                         >

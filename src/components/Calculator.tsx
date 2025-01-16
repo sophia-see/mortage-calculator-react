@@ -32,7 +32,7 @@ export default function Calculator () {
                 </div>
                 <div
                     className="
-                        text-c-slate-700 text-desktop/preset-4 underline
+                        text-c-slate-700 text-desktop/preset-4 underline cursor-pointer
                     "
                     onClick={reset}
                 >
