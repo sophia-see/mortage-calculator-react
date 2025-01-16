@@ -22,7 +22,7 @@ export default function Calculator ({ errors }: CalculatorProps ) {
             {/* header */}
             <div
                 className="
-                    flex flex-col gap-2
+                    flex flex-col gap-2 md:flex-row md:justify-between
                 "
             >
                 <div
