@@ -57,6 +57,9 @@ export default {
         "c-slate-100": "#E4F4FD",
 
         "c-red": "#D73328"
+      },
+      boxShadow: {
+        'c-shadow': '0 32px 64px hsla(205, 55%, 16%, 10%)',
       }
     },
   },
