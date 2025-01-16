@@ -4,9 +4,10 @@ interface RadioGroupProps {
     label: string;
     name: string;
     items: string[];
+    isError: boolean;
 }
 
-export default function RadioGroup ({label, name, items}: RadioGroupProps) {
+export default function RadioGroup ({label, name, items, isError}: RadioGroupProps) {
     const { register, watch, setValue } = useFormContext();
     const selectedValue = watch(name); 
 
@@ -35,7 +36,7 @@ export default function RadioGroup ({label, name, items}: RadioGroupProps) {
                             cursor-pointer
                             flex gap-4 items-center
                         `}
-                        
+                        key={item}
                         onClick={() => {
                             setValue(name, item)
                         }}
@@ -84,6 +85,11 @@ export default function RadioGroup ({label, name, items}: RadioGroupProps) {
                     </div>
                 )
             })}
+            {isError && (
+                <div className="text-c-red text-desktop/preset-5">
+                    This field is required
+                </div>
+            )}
         </div>
     )
 }

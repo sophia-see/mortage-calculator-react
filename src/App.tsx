@@ -13,7 +13,7 @@ export default function App() {
   const methods = useForm();
   const [monthly, setMonthly] = React.useState<null | number>(null);
   const [yearly, setYearly] = React.useState<null | number>(null);
-
+  const [errors, setErrors] = React.useState<string[]>([]);
   function calculateRepaymentMortgage({principal, annualInterestRate, loanTermYears}: CalculatorType) {
     // Convert annual interest rate to monthly interest rate
     const monthlyInterestRate = annualInterestRate / 12 / 100;
@@ -52,6 +52,12 @@ export default function App() {
   }
 
   const onSubmit = (data: any) => {
+    let blankFields = Object.entries(data).map(([key, value]) => {
+      if (value == null || value == undefined || value == "")
+        return key
+    }).filter(i => i as string);
+    setErrors(blankFields as string[]);
+
     let { monthly, total } = calculateRepaymentMortgage({principal:data.amount, annualInterestRate: data.interest, loanTermYears: data.years});
     
     if (data.mortage_type == "Interest Only") {
@@ -86,7 +92,7 @@ export default function App() {
             "
           >
             {/* calculator */}
-            <Calculator />
+            <Calculator errors={errors}/>
             {/* result */}
             <Result monthly={monthly} yearly={yearly}/>
           </div>

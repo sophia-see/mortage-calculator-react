@@ -3,7 +3,6 @@ interface ResultProps {
     yearly: number | null;
 }
 export default function Result ({monthly, yearly}: ResultProps) {
-
     const renderResult = (
         <>
             <div
@@ -32,6 +31,7 @@ export default function Result ({monthly, yearly}: ResultProps) {
                     py-[24px] px-[16px]
                     flex flex-col gap-4 md:gap-8
                     rounded-[8px] border-t-[4px] border-t-c-lime
+                    w-full
                 "
             >
                 <div
@@ -45,7 +45,7 @@ export default function Result ({monthly, yearly}: ResultProps) {
                         Your monthly repayments
                     </div>
                     <div
-                        className="text-c-lime text-mobile/preset-1"
+                        className="text-c-lime text-mobile/preset-1 md:text-desktop/preset-1"
                     >
                         £{monthly?.toFixed(2)}
                     </div>
@@ -98,8 +98,8 @@ export default function Result ({monthly, yearly}: ResultProps) {
                 bg-c-slate-900
                 h-[inherit]
                 py-[32px] px-[24px] md:p-[40px]
-                flex flex-col gap-6 md:gap-10 flex-1
-                md:rounded-b-[24px]
+                flex flex-col items-center justify-center gap-6 md:gap-10 flex-1
+                md:rounded-b-[24px] lg:rounded-bl-[80px] lg:rounded-tr-[24px]
             "
         >
             {monthly && yearly

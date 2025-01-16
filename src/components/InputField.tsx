@@ -10,8 +10,9 @@ interface InputFieldProps {
     label: string;
     type: string;
     name: string;
+    isError: boolean;
 }
-export default function InputField ({side, icon, label, type, name}: InputFieldProps) {
+export default function InputField ({side, icon, label, type, name, isError}: InputFieldProps) {
     const {register} = useFormContext();
     const isLeft = side == InputFieldSide.LEFT;
 
@@ -30,16 +31,16 @@ export default function InputField ({side, icon, label, type, name}: InputFieldP
                 {label}
             </div>
             <div
-                className="
+                className={`
                     flex 
-                    border-[1px] border-c-slate-500 rounded-[4px]
+                    border-[1px] ${isError ? "border-c-red" : "border-c-slate-500"} rounded-[4px]
                     overflow-hidden
-                "
+                `}
             >
                 <div
                     className={`
                         ${isLeft ? "order-first": "order-last"}
-                        bg-c-slate-100 text-c-slate-700 text-desktop/preset-3
+                        ${isError ? "bg-c-red text-white" : "bg-c-slate-100 text-c-slate-700"} text-desktop/preset-3
                         py-[12.5px] px-[16px]
                     `}
                 >
@@ -56,6 +57,11 @@ export default function InputField ({side, icon, label, type, name}: InputFieldP
                     step={"any"}
                 />
             </div>
+            {isError && (
+                <div className="text-c-red text-desktop/preset-5">
+                    This field is required
+                </div>
+            )}
         </div>
     )
 }
