@@ -18,7 +18,8 @@ export default function InputField ({side, icon, label, type, name}: InputFieldP
     return (
         <div
             className="
-                flex flex-col gap-3 flex-1
+                flex flex-col gap-3 md:flex-1 lg:flex-shrink
+                w-full
             "
         >
             <div
@@ -49,6 +50,7 @@ export default function InputField ({side, icon, label, type, name}: InputFieldP
                     className="
                         flex-1
                         pl-[16px]
+                        min-w-0
                     "
                     type={type}
                     step={"any"}

@@ -72,15 +72,16 @@ export default function App() {
             bg-c-slate-100
             font-sans
             h-auto min-h-screen w-screen
-            md:py-[40px]
+            md:py-[40px] lg:py-0
+            lg:flex lg:items-center
           "
         >
           <div
             className="
               bg-white
               md:m-auto
-              h-auto min-h-screen w-full md:max-w-[688px]
-              flex flex-col gap-0
+              h-auto min-h-screen w-full md:min-h-0 md:max-w-[688px] lg:max-w-[1008px]
+              flex flex-col gap-0 lg:flex-row
               md:rounded-[24px]
             "
           >

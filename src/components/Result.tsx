@@ -96,9 +96,9 @@ export default function Result ({monthly, yearly}: ResultProps) {
         <div
             className="
                 bg-c-slate-900
-                h-full
+                h-[inherit]
                 py-[32px] px-[24px] md:p-[40px]
-                flex flex-col gap-6 md:gap-10
+                flex flex-col gap-6 md:gap-10 flex-1
                 md:rounded-b-[24px]
             "
         >

@@ -12,6 +12,7 @@ export default function Calculator () {
     return (
         <div
             className="
+                h-auto lg:max-w-[504px]
                 py-[32px] px-[24px] md:p-[40px]
                 flex flex-col gap-6 md:gap-10
             "
@@ -47,7 +48,8 @@ export default function Calculator () {
                 <InputField side={InputFieldSide.LEFT} icon="£" label="Mortgage Amount" type="number" name="amount"/>
                 <div
                     className="
-                        flex flex-col gap-6 md:flex-row
+                        flex flex-col gap-6 md:flex-row lg:grid lg:grid-cols-2
+                        w-full
                     "                    
                 >
                     <InputField side={InputFieldSide.RIGHT} icon="years" label="Mortgage Term" type="number" name="years"/>   
