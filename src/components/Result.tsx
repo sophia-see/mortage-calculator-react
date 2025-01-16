@@ -6,7 +6,7 @@ export default function Result ({monthly, yearly}: ResultProps) {
 
     const renderResult = (
         <>
-                        <div
+            <div
                 className="
                     flex flex-col gap-4
                 "
@@ -30,7 +30,7 @@ export default function Result ({monthly, yearly}: ResultProps) {
                 className="
                     bg-c-dark-slate
                     py-[24px] px-[16px]
-                    flex flex-col gap-4
+                    flex flex-col gap-4 md:gap-8
                     rounded-[8px] border-t-[4px] border-t-c-lime
                 "
             >
@@ -97,8 +97,9 @@ export default function Result ({monthly, yearly}: ResultProps) {
             className="
                 bg-c-slate-900
                 h-full
-                py-[32px] px-[24px]
-                flex flex-col gap-6
+                py-[32px] px-[24px] md:p-[40px]
+                flex flex-col gap-6 md:gap-10
+                md:rounded-b-[24px]
             "
         >
             {monthly && yearly

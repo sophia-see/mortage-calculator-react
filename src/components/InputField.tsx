@@ -18,7 +18,7 @@ export default function InputField ({side, icon, label, type, name}: InputFieldP
     return (
         <div
             className="
-                flex flex-col gap-3
+                flex flex-col gap-3 flex-1
             "
         >
             <div

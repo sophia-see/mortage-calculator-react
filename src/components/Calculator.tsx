@@ -12,8 +12,8 @@ export default function Calculator () {
     return (
         <div
             className="
-                py-[32px] px-[24px]
-                flex flex-col gap-6
+                py-[32px] px-[24px] md:p-[40px]
+                flex flex-col gap-6 md:gap-10
             "
         >
             {/* header */}
@@ -45,8 +45,14 @@ export default function Calculator () {
                 "
             >
                 <InputField side={InputFieldSide.LEFT} icon="£" label="Mortgage Amount" type="number" name="amount"/>
-                <InputField side={InputFieldSide.RIGHT} icon="years" label="Mortgage Term" type="number" name="years"/>   
-                <InputField side={InputFieldSide.RIGHT} icon="%" label="Interest Rate" type="number" name="interest"/>    
+                <div
+                    className="
+                        flex flex-col gap-6 md:flex-row
+                    "                    
+                >
+                    <InputField side={InputFieldSide.RIGHT} icon="years" label="Mortgage Term" type="number" name="years"/>   
+                    <InputField side={InputFieldSide.RIGHT} icon="%" label="Interest Rate" type="number" name="interest"/>    
+                </div>
                 <RadioGroup label="Mortgage Type" items={MORTAGE_TYPES} name="mortage_type" />          
             </div>
 

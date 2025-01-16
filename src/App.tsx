@@ -72,13 +72,16 @@ export default function App() {
             bg-c-slate-100
             font-sans
             h-auto min-h-screen w-screen
+            md:py-[40px]
           "
         >
           <div
             className="
               bg-white
-              h-auto min-h-screen w-full
+              md:m-auto
+              h-auto min-h-screen w-full md:max-w-[688px]
               flex flex-col gap-0
+              md:rounded-[24px]
             "
           >
             {/* calculator */}
