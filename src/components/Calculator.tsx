@@ -1,3 +1,4 @@
+import { useFormContext } from "react-hook-form";
 import InputField, { InputFieldSide } from "./InputField";
 import RadioGroup from "./RadioGroup";
 
@@ -7,6 +8,7 @@ const MORTAGE_TYPES = [
 ]
 
 export default function Calculator () {
+    const { reset } = useFormContext();
     return (
         <div
             className="
@@ -31,6 +33,7 @@ export default function Calculator () {
                     className="
                         text-c-slate-700 text-desktop/preset-4 underline
                     "
+                    onClick={reset}
                 >
                     Clear All
                 </div>
@@ -41,27 +44,28 @@ export default function Calculator () {
                     flex flex-col gap-6
                 "
             >
-                <InputField side={InputFieldSide.LEFT} icon="£" label="Mortgage Amount" type="text"/>
-                <InputField side={InputFieldSide.RIGHT} icon="years" label="Mortgage Term" type="number"/>   
-                <InputField side={InputFieldSide.RIGHT} icon="%" label="Interest Rate" type="number"/>    
+                <InputField side={InputFieldSide.LEFT} icon="£" label="Mortgage Amount" type="number" name="amount"/>
+                <InputField side={InputFieldSide.RIGHT} icon="years" label="Mortgage Term" type="number" name="years"/>   
+                <InputField side={InputFieldSide.RIGHT} icon="%" label="Interest Rate" type="number" name="interest"/>    
                 <RadioGroup label="Mortgage Type" items={MORTAGE_TYPES} name="mortage_type" />          
             </div>
 
 
             {/* button */}
-            <div
+            <button
                 className="
                     bg-c-lime text-c-slate-900
                     py-[16px]
                     flex gap-3 items-center justify-center
                     rounded-full
                 "
+                type="submit"
             >
                 <img src="./assets/images/icon-calculator.svg" alt="calculator icon" />
                 <div className="text-desktop/preset-3">
                     Calculate Repayments
                 </div>
-            </div>
+            </button>
         </div>
     )
 }

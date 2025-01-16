@@ -9,8 +9,8 @@ interface RadioGroupProps {
 
 export default function RadioGroup ({label, name, items}: RadioGroupProps) {
     const { register, watch } = useFormContext();
-    const selectedValue = watch(name);
-    
+    const selectedValue = watch(name); 
+
     return (
         <div
             className="
@@ -50,16 +50,22 @@ export default function RadioGroup ({label, name, items}: RadioGroupProps) {
                                 border-[1.5px] border-c-slate-700 
                                 bg-transparent
                                 relative
-                                checked:border-c-lime
-                                checked:after:content-[''] 
-                                checked:after:w-2.5 after:h-2.5
-                                checked:after:bg-c-lime 
-                                checked:after:rounded-full 
-                                checked:after:absolute 
-                                checked:after:top-1/2
-                                checked:after:left-1/2
-                                checked:after:-translate-x-1/2
-                                checked:after:-translate-y-1/2
+                                ${isSelected 
+                                    ? `
+                                    checked:border-c-lime
+                                    checked:after:content-[''] 
+                                    checked:after:w-2.5 after:h-2.5
+                                    checked:after:bg-c-lime 
+                                    checked:after:rounded-full 
+                                    checked:after:absolute 
+                                    checked:after:top-1/2
+                                    checked:after:left-1/2
+                                    checked:after:-translate-x-1/2
+                                    checked:after:-translate-y-1/2
+                                    ` 
+                                    : ""
+                                }
+
                             `}
                         />
                         <label

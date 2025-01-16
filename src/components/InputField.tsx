@@ -1,3 +1,4 @@
+import { useFormContext } from "react-hook-form";
 
 export enum InputFieldSide {
     LEFT = "left",
@@ -8,8 +9,10 @@ interface InputFieldProps {
     icon: string;
     label: string;
     type: string;
+    name: string;
 }
-export default function InputField ({side, icon, label, type}: InputFieldProps) {
+export default function InputField ({side, icon, label, type, name}: InputFieldProps) {
+    const {register} = useFormContext();
     const isLeft = side == InputFieldSide.LEFT;
 
     return (
@@ -42,11 +45,13 @@ export default function InputField ({side, icon, label, type}: InputFieldProps) 
                     {icon}
                 </div>
                 <input 
+                    {...register(name)}
                     className="
                         flex-1
                         pl-[16px]
                     "
                     type={type}
+                    step={"any"}
                 />
             </div>
         </div>

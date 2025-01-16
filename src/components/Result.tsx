@@ -1,14 +1,12 @@
-export default function Result () {
-    return (
-        <div
-            className="
-                bg-c-slate-900
-                h-full
-                py-[32px] px-[24px]
-                flex flex-col gap-6
-            "
-        >
-            <div
+interface ResultProps {
+    monthly: number | null;
+    yearly: number | null;
+}
+export default function Result ({monthly, yearly}: ResultProps) {
+
+    const renderResult = (
+        <>
+                        <div
                 className="
                     flex flex-col gap-4
                 "
@@ -49,7 +47,7 @@ export default function Result () {
                     <div
                         className="text-c-lime text-mobile/preset-1"
                     >
-                        £1,797.74
+                        £{monthly?.toFixed(2)}
                     </div>
                 </div>
                 <div
@@ -71,10 +69,42 @@ export default function Result () {
                     <div
                         className="text-white text-desktop/preset-2"
                     >
-                        £539,322.94
+                        £{yearly?.toFixed(2)}
                     </div>
                 </div>
             </div>
+        </>
+    )
+
+    const noResult = (
+        <div
+            className="
+                flex flex-col gap-4 items-center
+            "
+        >
+            <img src="./assets/images/illustration-empty.svg" alt="illustration of calculation" />
+            <div className="text-white text-desktop/preset-2">
+                Results shown here
+            </div>
+            <div className="text-c-slate-300 text-desktop/preset-4 text-center">
+            Complete the form and click “calculate repayments” to see what your monthly repayments would be.
+            </div>
+        </div>
+    )
+
+    return (
+        <div
+            className="
+                bg-c-slate-900
+                h-full
+                py-[32px] px-[24px]
+                flex flex-col gap-6
+            "
+        >
+            {monthly && yearly
+                ? renderResult
+                : noResult
+            }
         </div>
     )
 }
