@@ -1,4 +1,3 @@
-import { useFormContext } from "react-hook-form";
 import InputField, { InputFieldSide } from "./InputField";
 import RadioGroup from "./RadioGroup";
 
@@ -12,7 +11,6 @@ interface CalculatorProps {
 }
 
 export default function Calculator ({ errors }: CalculatorProps ) {
-    const { reset } = useFormContext();
     return (
         <div
             className="
@@ -34,14 +32,13 @@ export default function Calculator ({ errors }: CalculatorProps ) {
                 >
                     Mortgage Calculator
                 </div>
-                <div
+                <input
                     className="
-                        text-c-slate-700 text-desktop/preset-4 underline cursor-pointer
+                        text-left text-c-slate-700 text-desktop/preset-4 underline cursor-pointer
                     "
-                    onClick={reset}
-                >
-                    Clear All
-                </div>
+                    value={"Clear All"}
+                    type="reset"
+                />
             </div>
             {/* fields */}
             <div

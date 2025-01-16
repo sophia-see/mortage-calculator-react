@@ -78,7 +78,7 @@ export default function App() {
             bg-c-slate-100
             font-sans
             h-auto min-h-screen w-screen
-            md:py-[40px] lg:py-0
+            md:py-[40px] lg:py-10
             lg:flex lg:items-center
           "
         >

@@ -32,8 +32,10 @@ export default function InputField ({side, icon, label, type, name, isError}: In
             </div>
             <div
                 className={`
+                    group
                     flex 
-                    border-[1px] ${isError ? "border-c-red" : "border-c-slate-500"} rounded-[4px]
+                    border-[1px] ${isError ? "border-c-red" : "border-c-slate-500 hover:border-c-slate-900 "} rounded-[4px]
+                    group-focus-within:border-c-lime
                     overflow-hidden
                 `}
             >
@@ -42,6 +44,7 @@ export default function InputField ({side, icon, label, type, name, isError}: In
                         ${isLeft ? "order-first": "order-last"}
                         ${isError ? "bg-c-red text-white" : "bg-c-slate-100 text-c-slate-700"} text-desktop/preset-3
                         py-[12.5px] px-[16px]
+                        group-focus-within:bg-c-lime group-focus-within:text-c-slate-900 
                     `}
                 >
                     {icon}
@@ -52,6 +55,8 @@ export default function InputField ({side, icon, label, type, name, isError}: In
                         flex-1
                         pl-[16px]
                         min-w-0
+                        text-desktop/preset-3
+                        outline-none
                     "
                     type={type}
                     step={"any"}
