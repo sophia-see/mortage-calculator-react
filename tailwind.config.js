@@ -48,6 +48,8 @@ export default {
         "c-lime": "#D8DB2F",
         "c-lime-15": "#F9FAE0",
 
+        "c-dark-slate": "#0E2431",
+        "c-light-slate": "#304A5A",
         "c-slate-900": "#133041",
         "c-slate-700": "#4E6E7E",
         "c-slate-500": "#6B94A8",
